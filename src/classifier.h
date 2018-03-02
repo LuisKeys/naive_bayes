@@ -24,6 +24,12 @@ public:
  	*/
  	virtual ~GNB();
 
+	string _left = "left";
+	string _keep = "keep";
+	string _right = "right";
+
+	double _PI = 3.1415926535;
+
  	void train(vector<vector<double> > data, vector<string>  labels);
 
   	string predict(vector<double>);
@@ -32,7 +38,7 @@ public:
 	std::vector<double> counter = {0.0, 0.0, 0.0}; //left, keep and right
 
 	// Sum by feature and label
-	std::vector<double> sum = {0.0, 0.0, 0.0, 0.0, 
+	std::vector<double> sum = {0.0, 0.0, 0.0, 0.0, //s, d, s', d' left
 								0.0, 0.0, 0.0, 0.0,  //s, d, s', d' keep
 								0.0, 0.0, 0.0, 0.0, }; //s, d, s', d' right
 	// Mean by feature and label
@@ -41,23 +47,22 @@ public:
 								0.0, 0.0, 0.0, 0.0, }; //s, d, s', d' right
 
 	// Variance by feature and label
-	std::vector<double> var = {0.0, 0.0, 0.0, 0.0, 
+	std::vector<double> var = {0.0, 0.0, 0.0, 0.0, //s, d, s', d' left
 								0.0, 0.0, 0.0, 0.0,  //s, d, s', d' keep
 								0.0, 0.0, 0.0, 0.0, }; //s, d, s', d' right
 	// Standard deviation by feature and label
-	std::vector<double> sd = {0.0, 0.0, 0.0, 0.0, 
+	std::vector<double> sd = {0.0, 0.0, 0.0, 0.0, //s, d, s', d' left
 								0.0, 0.0, 0.0, 0.0,  //s, d, s', d' keep
 								0.0, 0.0, 0.0, 0.0, }; //s, d, s', d' right
 
 	// Prior probability
-	std::vector<double> pp = {0.0, 0.0, 0.0, 0.0, 
+	std::vector<double> pp = {0.0, 0.0, 0.0, 0.0, //s, d, s', d' left
 								0.0, 0.0, 0.0, 0.0,  //s, d, s', d' keep
 								0.0, 0.0, 0.0, 0.0, }; //s, d, s', d' right
 
 	std::vector<string> names = {"s Left", "d Left", "s\' Left", "d\' Left", 
 								"s Keep", "d Keep", "s\' Keep", "d\' Keep", 
 								"s Right", "d Right", "s\' Right", "d\' Right"};
-
 };
 
 #endif
